@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<div class="content">
+    
+        <h2 string_id='hospital_search'>&nbsp;</h2>
+        
+        <ul class="base_list">
+        
+            <li class='block_title' id="titoloElenco" string_id='general_search_title'>&nbsp;</li>
+            
+            <li><a href="#" class='has_arrow emergenza pink_bg svgcss' onclick="loadPage('emergenza.html?cat=em')"><img src="img/croce.svg"><span string_id='emergence'>&nbsp;</span></a></li>
+            <li><a href='#' class='home-button has_arrow svgcss' id="ospedali" string_id='ac_search' onclick='loadPage("subcat.html?cat=ac")'>&nbsp;</a></li>
+            <li><a href='#' class='home-button has_arrow svgcss' id="psichiatrici" string_id='ps_search' onclick='loadPage("cat.html?cat=ps")'>&nbsp;</a></li>
+            <li><a href="#" class='home-button has_arrow svgcss' id="riabilitazione" string_id='re_search' onclick='loadPage("cat.html?cat=re")'>&nbsp;</a></li>
+            
+            <!--
+            <li><a href="#" class='home-button has_arrow svgcss' id="test" onclick='window.open("http://maps.apple.com/?q=47.3988,8.51999", "_system")'>rianimazione</a></li>
+            <li style='display: none'><a href="#" class='home-button has_arrow svgcss' id="test" onclick='loadPage("semaforo.html")' style="background-image: url(img/lang-it.svg)">-- 1.<img src="img/lang-de.svg" width="30"> - 2.<embed width="30" src="img/lang-de.svg"> - 3.<object type="image/svg+xml" width="30" data="img/lang-de.svg"></object></a></li>
+            -->
+                        
+            <li class="block_title" string_id='gps_title'>&nbsp;</li>
+            
+			<li id="search_box"> 
+                <p id="cercaPos">
+                    <a href='#' onclick='loadGeolocation()'><img src="img/gps_icon.svg" id="icon_gps"></a>
+                    <span string_id='gps_search'>&nbsp;</span><br />
+                    <strong id='current_gps'>&nbsp;</strong>
+                </p>
+                
+                <div id='town_selector'>
+                	<ul></ul> <!-- lista che verrà riempita dalla ricerca --- NON LEVARE! -->
+                    <input name="town_input" autocorrect="off" id="town_input" type="text" placeholder="PLZ/ORT manuell eingeben" value="">
+                    <a id="clear_text" class='svgcss' onclick="clearTownText()"></a>
+                </div>
+             </li>
+             
+        </ul>
+        
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head> 
+
+
+<body> 
+
+<div class="content" >	
+
+    <h2 class="red-text" string_id='case_emerg'>&nbsp;</h2>
+    
+    <ul>
+        <li id="pericolo" class='size16px align_center'>
+        	<p string_id='serious_emerg'>&nbsp;</p>
+            <a href='#' onclick="confirmCall('144')"><img src="img/144.svg" width="150"></a>
+        </li>
+        <li class="has_arrow emerg_line pink_bg red-text svgcss"><a href="#" onclick="loadPage('info_utili.html')" string_id='useful_info' >&nbsp;</a></li>
+        <!-- eliminata dal progetto
+        <li style='display: none'>
+        	<h3 class='blue-text' string_id='no_danger'>&nbsp;</h3>
+            <ol id="no_life_danger">
+                <li><span string_id='notice_1'>&nbsp;</span></li>
+                <li><span string_id='notice_2'>&nbsp;</span></li>
+            </ol>
+        </li>
+        -->
+        <li class="has_arrow emerg_line grey_bg svgcss top_light_line"><a href="#" onclick="loadPage('subcat.html?cat=em')" string_id='seek_hospital'>&nbsp;</a></li>
+        <li class="emerg_line grey_bg top_light_line"><a href='#' onclick="confirmCall('145')" string_id='intoxication_call'>&nbsp;</a></li>
+    </ul>
+    
+    <div id='bottom_footer' class='emerg_footer base_padding' string_id='emerg_footer'>&nbsp;</div>
+       
+</div><!-- /content -->
+	
+</body>
+</html>

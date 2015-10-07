@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head> 
+
+
+<body> 
+
+	<div class="content">	
+    
+        <h2 data_link='clinicnm'>--</h2>
+        
+        <div id="dettaglio">
+        	
+            <h5 class='block_title' string_id='location'>&nbsp;</h5>
+            
+            <table class='detail_table' border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width='50'><a id='map_link' onclick="openMap()" lat='' lon=''><img src="img/map_icon.svg" width="40" /></a></td>
+                    <td class='base_vpadding'>
+                        <span data_link='clinicnm'>--</span></a><br>
+                        <span data_link='address'>--</span><br>
+                        <span data_link='plz'>--</span> <span data_link='ort'>--</span>
+                    </td>
+                    <!--
+                    <td class='detail_icons'><img id='icon_ac_active' src="img/icon_ac_active.svg" /><img id='icon_ps_active' src="img/icon_ps_active.svg" /><img id='icon_re_active' src="img/icon_re_active.svg" /></td>
+                    -->
+                </tr>
+            </table>
+        
+            <h5 class='block_title' string_id='contact'>&nbsp;</h5>
+            
+            <table class='detail_table contact_table' border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th string_id='reception'>Empfang</th>
+                    <td class="blue-text"><a href='#' id='contactphone' class='nopadding'><span data_link='contactphone'>--</span></a></td>
+                </tr>
+                <tr>
+                    <th>E-Mail</th>
+                    <td class="blue-text" data_link='contactemail' onclick="openMailTo($(this).text())">--</td>
+                </tr>
+                <tr>
+                    <th>Internet</th>
+                    <td class="blue-text" data_link='contactweb' onclick="openBrowserURL($(this).text())">--</td>
+                </tr>
+            </table>
+            
+            <div id='visit_hour_data'>
+                <h5 class='block_title' id='visit_hour_title' string_id='visit_hours'>&nbsp;</h5>
+    
+                <h4 string_id='general'>Allgemein</h4>
+                <p class="blue-text" data_link='visittime'>--</p>
+                
+                <h4 string_id='comment'>Bemerking</h4>
+                <p class="blue-text" data_link='visitremark'>--</p>
+            </div>
+   
+            <!-- NUOVO LINK per apertura delle statistiche sui casi trattati --- solo acutspital --> 
+            <div id="fascia_casi_line">
+                <a href="#" class='has_arrow svgcss' id="fascia_casi" string_id='cases_line'>&nbsp;</a>
+            </div>
+            
+        </div>
+     
+	</div>
+	
+</body>
+</html>

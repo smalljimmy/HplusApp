@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Documento senza titolo</title>
+<style>
+
+@-webkit-keyframes spinner-anim-old {
+	0%		{-webkit-transform: rotate(0deg);}
+	8.32%	{-webkit-transform: rotate(0deg);}
+	8.33%	{-webkit-transform: rotate(30deg);}
+	16.66%	{-webkit-transform: rotate(30deg);}
+	16.67%	{-webkit-transform: rotate(60deg);}
+	24.99%	{-webkit-transform: rotate(60deg);}
+	25%		{-webkit-transform: rotate(90deg);}
+	33.32%	{-webkit-transform: rotate(90deg);}
+	33.33%	{-webkit-transform: rotate(120deg);}
+	41.66%	{-webkit-transform: rotate(120deg);}
+	41.67%	{-webkit-transform: rotate(150deg);}
+	49.99%	{-webkit-transform: rotate(150deg);}
+	50%		{-webkit-transform: rotate(180deg);}
+	58.32%	{-webkit-transform: rotate(180deg);}
+	58.33%  {-webkit-transform: rotate(210deg);}
+	66.66%	{-webkit-transform: rotate(210deg);}
+	66.67%	{-webkit-transform: rotate(240deg);}
+	74.99%	{-webkit-transform: rotate(240deg);}
+	75%		{-webkit-transform: rotate(270deg);}
+	83.32%	{-webkit-transform: rotate(270deg);}
+	83.33%	{-webkit-transform: rotate(300deg);}
+	91.66%	{-webkit-transform: rotate(300deg);}
+	91.67%	{-webkit-transform: rotate(330deg);}
+	99.99%	{-webkit-transform: rotate(330deg);}
+	100%	{-webkit-transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spinner-anim {
+	from	{-webkit-transform: rotate(0deg);}
+	to		{-webkit-transform: rotate(360deg);}
+}
+
+#spinner {
+	background: #f90;
+	height: 200px;
+	position: relative;
+	width: 200px;
+}
+
+#spinner img {
+	height: 30px;
+	left: 50%;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	-webkit-animation: spinner-anim 1s steps(12) infinite ;
+	animation: spinner-anim 1.5s steps(12) infinite ;
+}
+</style>
+</head>
+
+<body >
+<div id='spinner'><img src="img/spinner.png"></div>
+<div style="
+	background: url(img/144.svg) no-repeat center center;
+    height: 180px;
+"></div>
+<embed src="img/144.svg" style="width: 200px">
+<img src="img/144.png" width="200" id='target'><br>
+<a href="javascript: return false" ontap="alert($(this).text())">tap me</a><br>
+<a href="javascript: return false" ontap="alert($(this).text())">and me</a><br>
+<a href="javascript: return false" ontap="alert($(this).text())">me too</a><br>
+<p>click listeners: <span id='cnt'>0</span></p>
+<button id='clickadd'>add a click listener</button><br>
+<button id='clickremove'>remove a click listener</button><br>
+<button id='clickfire'>click</button><br>
+
+
+<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script>
+
+var cnt = 0;
+
+$("[ontap]").click(function(evt) {
+	eval($(this).attr("ontap"));
+});
+
+$("#clickadd").click(function() {
+	cnt ++;
+	$("#cnt").text(cnt);
+	$("#clickfire").click(function() {
+		$('#target').toggle();
+	});
+});
+</script>
+</body>
+</html>

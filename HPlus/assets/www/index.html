@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html>
+
+<!-------------------------------------------------------------------------- ANDROID Version --------------------------------------------------->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density=device-dpi" />
+    
+    <title>H+</title>
+   
+    <!--------------------------------  CSS  -------------------------------------->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/font_face/arial.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head> 
+
+<body>
+
+    <div id="myheader">
+        <a href='#' id='back_button' onclick='goBack(window.event)'><img src="img/back.svg" width="30" height="30"></a>
+        <div id="devicestatus">DC?</div>
+        
+        <div id="title_page">
+        	<img src="img/hplus-logo.svg" height='24' />
+        </div>
+        <a href="#" onclick='event.stopPropagation(); moveOptionsPanel("in")' id='options_button'><img src="img/option.svg" width="30" height="30"></a>
+    </div>
+
+    <div id='page_mask'>
+        <div id='error_message'></div>
+    </div>
+    
+    <div id="no_result" string_id='_no_res'>&nbsp;</div>
+
+    <div id='options_panel_mask'></div>
+    <div id="options_panel">
+        <a onclick='event.stopPropagation(); moveOptionsPanel("out")'><img src="img/option_close.svg" width="30" height="30" /></a>
+        <p>&nbsp;</p>
+        <a href="#" onclick="changeLanguage('de')" class='option_btn'>
+        	<img src="img/lang-de.svg" class="flag" />
+            <p class="align_center">Deutsch</p>
+        </a>
+        <hr>
+        <a href="#" onclick="changeLanguage('fr')" class='option_btn'>
+        	<img src="img/lang-fr.svg" class="flag" />
+            <p class="align_center">Français</p>
+        </a>
+        <hr>
+        <a href="#" onclick="changeLanguage('it')" class='option_btn'>
+        	<img src="img/lang-it.svg" class="flag" />
+            <p class="align_center">Italiano</p>
+        </a>
+        <p>&nbsp;</p>
+        <a href="#" onclick='event.stopPropagation(); moveOptionsPanel("out"); loadPage("home.html")' class='option_btn'>
+        	<img src="img/home.svg" class="flag"/>
+            <p class="align_center">Home</p>
+        </a>
+        <p>&nbsp;</p>
+        <a href="#" onclick='event.stopPropagation(); showImpressum(true)' class='option_btn'>
+        	<img src="img/impressum.svg" class="flag" />
+            <p class="align_center" string_id='_impressum'>&nbsp;</p>
+        </a>
+    </div>
+    
+    <div id='impressum' class='base_padding' onclick='showImpressum(false)'>
+        <a onclick='showImpressum(false)'><img src="img/option_close.svg" width="30" height="30" /></a>
+        <p>&nbsp;</p>
+        <div id='impressum_content' class='blue-text base_padding'>
+            <p class='bold' string_id='_info_editor'>&nbsp;</p>
+            <p string_id='_info_name'>&nbsp;</p>
+            <p>Lorrainestrasse 4 A</p>
+            <p>3013 <span string_id='_bern'>&nbsp;</span></p>
+            <p>&nbsp;</p>
+            <p><span string_id='_tel'>&nbsp;</span> +41 (0)31 335 11 11</p>
+            <p><span string_id='_fax'>&nbsp;</span> +41 (0)31 335 11 70</p>
+            <p><a href='mailto:geschaeftsstelle@hplus.ch'>geschaeftsstelle@hplus.ch</a></p>
+            <p>&nbsp;</p>
+            <p class='bold' string_id='_info_legal'>&nbsp;</p>
+            <p string_id='_info_disclaimer'>&nbsp;</p>
+        </div>
+    </div>
+    
+    <div data-role="page" id="base_page">
+    </div>
+    
+    
+    
+    
+
+<!-- debugger ------- togliere dalla distribuzione
+<script src="http://192.168.0.3:9090/target/target-script-min.js#hplus"></script>
+-->
+
+
+<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.SVG.js"></script>
+<script type="text/javascript" src="js/cordova-2.5.0.js"></script>
+
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+
+<script type="text/javascript" src="js/xml2json.js"></script>
+<script type="text/javascript" src="js/sorttable.js"></script>
+
+<script type="text/javascript" src="js/svgeezy.js"></script>
+
+<script type="text/javascript" src="js/languages.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script type="text/javascript">
+	/*
+	$("*").click(function(evt) {
+		console.log("evt", evt);
+		console.log("target", evt.target);
+		console.log("currentTarget", evt.currentTarget);
+	});
+	*/
+
+	page_data.pageParams = {};
+	page_data.pageParams.cat = "";
+
+	app.initialize();
+	
+	// attivo il click sulla mask principale
+	$("#page_mask").click(function (evt) {
+		popupToggle("close", evt);
+	});
+	
+	// controllo se c'è una città valida registrata
+	if (!appStorage.ort) {
+		appStorage.ort = "";
+		appStorage.plz = "";
+	}
+	
+	SVGSupport = Modernizr.svg;
+	
+	// correggo il problema di Android < 3 con gli SVG
+	AndroidSVGCorrect();
+	
+	// ----- DBG per test sui browser --- togliere la riga sotto dalla versione device
+	/*
+	if (!navigator.splashscreen){ 
+		console.log(navigator);
+		navigatorRedefine();	
+		loadPage("home.html");
+	}
+	*/
+	
+</script>
+</body>
+</html>

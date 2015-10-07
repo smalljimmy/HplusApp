@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Archivio1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/www/js/jquery-ui-1.10.3.custom/Archivio.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
